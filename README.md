@@ -1,2 +1,4 @@
-# django-cyoa
-A Django driven system for generating and playing Choose Your Own Adventure
+django_cyoa (A "Choose Your Own Adventure" app with creation tool via django admin)
+----------
+
+- Under construction -

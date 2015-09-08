@@ -1,0 +1,28 @@
+<head>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "cyoa/styles/styles.css" %}">
+</head>
+
+<PRE>{{ story.story_title }}</PRE>
+
+{% if story.display_image %}<P ALIGN = CENTER><img src="{% static story.image %}" alt="My image"/></A></P>{% endif %}
+
+<PRE>{{ story.story_text }}</PRE>
+
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% if story.ending %}<A HREF=/stories/1>Return to beginning</A>{% else %}
+
+<form action="{% url 'stories:vote' story.id %}" method="post">
+{% csrf_token %}
+{% for choice in story.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+    <label style="font-size:16px;" for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+{% endfor %}
+<BR>
+<input type="submit" value="Choose" />
+</form>
+
+{% endif %}
+
