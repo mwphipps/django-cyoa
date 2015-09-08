@@ -3,20 +3,23 @@
 <link rel="stylesheet" type="text/css" href="{% static "cyoa/styles/styles.css" %}">
 </head>
 
-<PRE>{{ story.story_title }}</PRE>
+{% if snippet.display_title %}
+<PRE>{{ snippet.snippet_title }}</PRE>
+{% endif %}
 
-{% if story.display_image %}<P ALIGN = CENTER><img src="{% static story.image %}" alt="My image"/></A></P>{% endif %}
 
-<PRE>{{ story.story_text }}</PRE>
+{% if snippet.display_image %}<P ALIGN = CENTER><img src="{% static snippet.image %}" alt="My image"/></A></P>{% endif %}
+
+<PRE>{{ snippet.snippet_text }}</PRE>
 
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-{% if story.ending %}<A HREF=/stories/1>Return to beginning</A>{% else %}
+{% if snippet.ending %}<A HREF=/snippets/1>Return to beginning</A>{% else %}
 
-<form action="{% url 'stories:vote' story.id %}" method="post">
+<form action="{% url 'snippets:vote' snippet.id %}" method="post">
 {% csrf_token %}
-{% for choice in story.choice_set.all %}
+{% for choice in snippet.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
     <label style="font-size:16px;" for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
 {% endfor %}

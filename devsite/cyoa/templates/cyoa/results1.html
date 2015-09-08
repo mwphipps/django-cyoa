@@ -1,9 +1,9 @@
 <h1>{{ story.story_text }}</h1>
 
 <ul>
-{% for choice in story.choice_set.all %}
+{% for choice in snippet.choice_set.all %}
     <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
 {% endfor %}
 </ul>
 
-<a href="{% url 'stories:detail' story.id %}">Again?</a>
+<a href="{% url 'snippets:detail' snippet.id %}">Again?</a>

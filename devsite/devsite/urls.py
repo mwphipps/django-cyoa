@@ -4,6 +4,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^stories/', include('cyoa.urls', namespace="stories")),
+    url(r'^snippets/', include('cyoa.urls', namespace="snippets")),
     url(r'^admin/', include(admin.site.urls)),
 )

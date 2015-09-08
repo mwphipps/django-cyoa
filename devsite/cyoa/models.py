@@ -2,9 +2,11 @@ from django.db import models
 from django.utils import timezone
 from django import forms
 
+
 class Snippet(models.Model):
     snippet_text = models.TextField(max_length=2000)
     snippet_title = models.TextField(max_length=42, default='Title')
+    beginning = models.IntegerField(default=0)
     ending = models.IntegerField(default=0)
     image = models.TextField(max_length=42, default='No Image')
     display_image = models.IntegerField(default=0)
