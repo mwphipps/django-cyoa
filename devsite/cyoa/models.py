@@ -23,7 +23,6 @@ class Story(models.Model):
 class Choice(models.Model):
     story = models.ForeignKey(Story)
     choice_text = models.CharField(max_length=250)
-    votes = models.IntegerField(default=0)
     story_link = models.IntegerField(default=0)
     def __str__(self):              # __unicode__ on Python 2
         return self.choice_text
