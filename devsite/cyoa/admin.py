@@ -3,7 +3,7 @@ from cyoa.models import Story, Snippet, Choice
 
 class StoryAdmin(admin.ModelAdmin):
     fieldsets = [
-         (None,               {'fields': ['story_title']}),
+         (None,               {'fields': ['story_title', 'story_beginning_snippet', 'story_author', 'story_year', 'story_descript']}),
     ]
 
 
