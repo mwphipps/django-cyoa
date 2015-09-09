@@ -24,7 +24,7 @@ class Snippet(models.Model):
 
 class Stories(models.Model):
 	story_title = models.TextField(max_length=42, default='Title')
-	snippets = models.ForeignKey(related_name="stories_snippet", Snippet)
+	snippets = models.ForeignKey(Snippet, related_name="stories_snippet")
 
 
 class Choice(models.Model):
