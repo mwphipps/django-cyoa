@@ -1,11 +1,11 @@
 from django.db import models
 from django.utils import timezone
 from django import forms
+from datetime import date
 
 class Snippet(models.Model):
     snippet_text = models.TextField(max_length=2000)
     snippet_title = models.TextField(max_length=42, default='Title')
-    beginning = models.IntegerField(default=0)
     ending = models.IntegerField(default=0)
     image = models.TextField(max_length=42, default='No Image')
     display_image = models.IntegerField(default=0)
@@ -23,7 +23,13 @@ class Snippet(models.Model):
 
 
 class Story(models.Model):
+	class Meta:
+		verbose_name_plural = "stories"
 	story_title = models.TextField(max_length=42, default='Title')
+	story_beginning_snippet = models.IntegerField(default=0)
+	story_author = models.TextField(max_length=42, default='Anonymous')
+	story_year =  models.TextField(max_length=42, default=date.today().year)
+	story_descript = models.TextField(max_length=2000)
 	snippets = models.ForeignKey(Snippet, related_name="story_snippet")
 	def __str__(self):              # __unicode__ on Python 2
 		return self.story_title
