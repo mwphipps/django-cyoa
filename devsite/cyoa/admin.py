@@ -1,10 +1,10 @@
 from django.contrib import admin
-from cyoa.models import Choice, Snippet
+from cyoa.models import Story, Snippet, Choice
 
-
-class ChoiceInline(admin.TabularInline):
-    model = Choice
-    extra = 3
+class StoryAdmin(admin.ModelAdmin):
+    fieldsets = [
+         (None,               {'fields': ['story_title']}),
+    ]
 
 
 class SnippetAdmin(admin.ModelAdmin):
@@ -13,8 +13,11 @@ class SnippetAdmin(admin.ModelAdmin):
         ('Date', {'fields': ['pub_date']}),
         ('Image & Ending Options', {'fields': ['display_title','beginning','ending','display_image','image']}),
     ]
-    inlines = [ChoiceInline]
+#    inlines = [ChoiceInline]
 
+
+admin.site.register(Story, StoryAdmin)
 admin.site.register(Snippet, SnippetAdmin)
+
 
 list_display = ('snippet_text', 'pub_date', 'was_published_recently')

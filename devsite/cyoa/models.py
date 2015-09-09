@@ -22,9 +22,11 @@ class Snippet(models.Model):
     search_fields = ['snippet_title','snippet_text']
 
 
-class Stories(models.Model):
+class Story(models.Model):
 	story_title = models.TextField(max_length=42, default='Title')
-	snippets = models.ForeignKey(Snippet, related_name="stories_snippet")
+	snippets = models.ForeignKey(Snippet, related_name="story_snippet")
+	def __str__(self):              # __unicode__ on Python 2
+		return self.story_title
 
 
 class Choice(models.Model):
