@@ -30,9 +30,10 @@ class Story(models.Model):
 	story_author = models.TextField(max_length=42, default='Anonymous')
 	story_year =  models.TextField(max_length=42, default=date.today().year)
 	story_descript = models.TextField(max_length=2000)
-	snippets = models.ForeignKey(Snippet, related_name="story_snippet")
+	snippets = models.ForeignKey(Snippet, related_name="story_snippet", default=1)
 	def __str__(self):              # __unicode__ on Python 2
 		return self.story_title
+
 
 
 class Choice(models.Model):
