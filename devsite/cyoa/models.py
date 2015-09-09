@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 from django import forms
 
-
 class Snippet(models.Model):
     snippet_text = models.TextField(max_length=2000)
     snippet_title = models.TextField(max_length=42, default='Title')
@@ -21,6 +20,12 @@ class Snippet(models.Model):
     was_published_recently.short_description = 'Published recently?'
     list_filter = ['pub_date']
     search_fields = ['snippet_title','snippet_text']
+
+
+class Stories(models.Model):
+	story_title = models.TextField(max_length=42, default='Title')
+	snippets = models.ForeignKey(related_name="stories_snippet", Snippet)
+
 
 class Choice(models.Model):
     snippet = models.ForeignKey(Snippet)
