@@ -2,7 +2,7 @@
 
 <ul>
 {% for choice in snippet.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+    <li>{{ choice.choice_text }} -- {{ choice.choices }} choose{{ choice.choices|pluralize }}</li>
 {% endfor %}
 </ul>
 

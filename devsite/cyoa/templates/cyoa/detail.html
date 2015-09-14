@@ -17,7 +17,7 @@
 
 {% if snippet.ending %}<A HREF=/snippets/1>Return to beginning</A>{% else %}
 
-<form action="{% url 'snippets:vote' snippet.id %}" method="post">
+<form action="{% url 'snippets:choose' snippet.id %}" method="post">
 {% csrf_token %}
 {% for choice in snippet.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />

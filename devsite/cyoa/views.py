@@ -29,7 +29,7 @@ class ResultsView(generic.DetailView):
     template_name = 'cyoa/results1.html'
 
 # Here the actual "choice" (vote) is cast and lastly we are sent to the story snippet detail based on the snippet_link from the choice.
-def vote(request, snippet_id):
+def choose(request, snippet_id):
     p = get_object_or_404(Snippet, pk=snippet_id)
     try:
         selected_choice = p.choice_set.get(pk=request.POST['choice'])
