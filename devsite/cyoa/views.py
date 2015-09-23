@@ -4,19 +4,13 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 
 
-from cyoa.models import Choice, Snippet
+from cyoa.models import Choice, Snippet, Story
 
 # The index view is only loaded once
-class IndexView(generic.TemplateView):
-	def get(self, request, *args, **kwargs):
-		template_name = 'cyoa/index.html'
-		return render(request, 'cyoa/index.html', {
-			# This title is only for the original index page
-            'cyoatitle': "Kentucky Wanderer",
-            'cyoaauthor': 'Michael Phipps Jr.',
-            'cyoayear': '2014',
-            'cyoadescript': "Frustrated with modern life, you decide to take a hike by yourself to get away from things.",
-        })
+def index(request):
+    story_list = Story.objects.all
+    context = {'story_list': story_list}
+    return render(request, 'cyoa/index.html', context)
 
 # The detail view is loaded every time a choice is made.    
 class DetailView(generic.DetailView):

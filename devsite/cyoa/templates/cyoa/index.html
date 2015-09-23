@@ -1,6 +1,7 @@
-<H1 ALIGN=CENTER>{{story_title}}</H1></A>
-<P ALIGN=CENTER>By {{story_author}}<BR>Copyright {{story_year}}</P></A>
+<H1 ALIGN=CENTER>Story List</H1></A>
 
-<P ALIGN=CENTER>{{story_descript}}</P>
-<P ALIGN=CENTER><A HREF=1/>Begin Story</A></P></A>
-
+<ul>
+{% for Story in story_list %}
+    <li>{{ Story }}</li>
+{% endfor %}
+</ul>

@@ -33,6 +33,8 @@ class Story(models.Model):
 	snippets = models.ForeignKey(Snippet, related_name="story_snippet", default=1)
 	def __str__(self):              # __unicode__ on Python 2
 		return self.story_title
+	list_filter = ['story_title']
+	search_fields = ['story_title','story_author','story_descript']
 
 
 
