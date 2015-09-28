@@ -13,20 +13,15 @@ class ChoiceInline(admin.StackedInline):
 	model = Choice
 	extra = 3
 
-
 class SnippetAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,               {'fields': ['snippet_title','snippet_text']}),
         ('Date', {'fields': ['pub_date']}), 
         ('Image & Ending Options', {'fields': ['display_title', 'ending','display_image','image']}),
     ]
-    list_display = ('snippet_text', 'pub_date', 'was_published_recently')
-
-#    inlines = [ChoiceInline]
+    list_display = ('id', 'snippet_text', 'pub_date', 'was_published_recently')
+    inlines = [ChoiceInline]
     
-
-
-
 admin.site.register(Story, StoryAdmin)
 admin.site.register(Snippet, SnippetAdmin)
 
