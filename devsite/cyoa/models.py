@@ -22,7 +22,6 @@ class Snippet(models.Model):
     list_filter = ['pub_date']
     search_fields = ['snippet_title','snippet_text']
 
-
 class Story(models.Model):
 	class Meta:
 		verbose_name_plural = "stories"
@@ -36,8 +35,6 @@ class Story(models.Model):
 		return self.story_title
 	list_filter = ['story_title']
 	search_fields = ['story_title','story_author','story_descript']
-
-
 
 class Choice(models.Model):
     snippet = models.ForeignKey(Snippet)

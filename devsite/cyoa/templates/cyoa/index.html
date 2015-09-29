@@ -2,6 +2,8 @@
 
 <ul>
 {% for Story in story_list %}
-    <li>{{ Story }}</li>
+    <li><a href="{{ Story.story_beginning_snippet }}">{{ Story}}</a></li>
 {% endfor %}
 </ul>
+
+
