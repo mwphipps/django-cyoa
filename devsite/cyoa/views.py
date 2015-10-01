@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 
 
-from cyoa.models import Choice, Snippet, Story
+from cyoa.models import Choice, Snippet, Story, First
 
 # The index view is only loaded once
 def index(request):
