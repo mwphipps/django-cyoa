@@ -4,6 +4,7 @@ from django import forms
 from datetime import date
 import datetime
 
+
 class Snippet(models.Model):
     snippet_text = models.TextField(max_length=2000)
     snippet_title = models.TextField(max_length=42, default='Title')
@@ -11,6 +12,7 @@ class Snippet(models.Model):
     image = models.TextField(max_length=42, default='No Image')
     display_image = models.IntegerField(default=0)
     display_title = models.IntegerField(default=0)
+    story_list = models.ForeignKey('Story')
     pub_date = models.DateTimeField('date published')
     def __str__(self):              # __unicode__ on Python 2
         return self.snippet_text

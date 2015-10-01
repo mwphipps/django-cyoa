@@ -17,7 +17,7 @@ class SnippetAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,               {'fields': ['snippet_title','snippet_text']}),
         ('Date', {'fields': ['pub_date']}), 
-        ('Image & Ending Options', {'fields': ['display_title', 'ending','display_image','image']}),
+        ('Image & Ending Options', {'fields': ['display_title', 'ending','display_image','image', 'story_list']}),
     ]
     list_display = ('id', 'snippet_text', 'pub_date', 'was_published_recently')
     inlines = [ChoiceInline]
