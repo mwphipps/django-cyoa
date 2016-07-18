@@ -36,18 +36,18 @@ class Snippet(models.Model):
     was_published_recently.short_description = 'Published recently?'
     list_filter = ['pub_date']
     search_fields = ['snippet_title','snippet_text']
-    
+
 class Choice(models.Model):
     snippet = models.ForeignKey(Snippet)
     choice_text = models.CharField(max_length=250)
     snippet_link = models.IntegerField(default=0)
     def __str__(self):              # __unicode__ on Python 2
         return self.choice_text
-        
+
 class First(models.Model):
 	class Meta:
 		verbose_name_plural = "Story Introduction Snippets"
 	story = models.ForeignKey(Story)
 	snippet = models.ForeignKey(Snippet)
 	def __str__(self):              # __unicode__ on Python 2
-		return self.snippet
+		return str(self.snippet)
