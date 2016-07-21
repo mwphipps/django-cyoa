@@ -7,20 +7,8 @@ from datetime import date
 
 
 class SnippetForm(forms.ModelForm):
-
-    is_intro = forms.BooleanField(required=False)
-
-    def save(self, commit=True):
-        is_intro = self.cleaned_data.get('is_intro', None)
-        # ...do something with is_intro here...
-        if is_intro:
-        	print "OK"
-        return super(SnippetForm, self).save(commit=commit)
-
-    class Meta:
-        model = Snippet	
-        exclude = []
-
+    model = Snippet	
+    exclude = []
 
 class StoryAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -37,7 +25,7 @@ class SnippetAdmin(admin.ModelAdmin):
         (None,               {'fields': ['snippet_title','snippet_text']}),
         ('Date', {'fields': ['pub_date']}),
         ('Story Selection', {'fields': ['story']}),
-        ('Image & Ending Options', {'fields': ['display_title', 'is_intro', 'ending', 'display_image', 'image']}),
+        ('Image & Ending Options', {'fields': ['display_title', 'ending', 'display_image', 'image']}),
     ]
     list_display = ('id', 'snippet_text', 'pub_date', 'was_published_recently')
     inlines = [ChoiceInline]

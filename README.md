@@ -9,9 +9,9 @@ Python 2.7, Django, and PostgreSQL
 
 Create a new PostgreSQL database named "cyoa". Then, run the following..
 
-python install -r requirements.txt
-python manage.py migrate
-python manage.py createsuperuser
+1. pip install -r requirements.txt
+2. python manage.py migrate
+3. python manage.py createsuperuser
 
 - Creating Stories
 
